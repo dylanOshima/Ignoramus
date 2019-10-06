@@ -1,10 +1,11 @@
 
 from flask import Flask, request
+from redis import Redis
 import os
 import socket
 
 # Connect to Redis
-# redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
+redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
 app = Flask(__name__)
 
@@ -27,4 +28,4 @@ def check():
             return "This method is unsupported.", 405
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8081)
+    app.run(host='0.0.0.0', port=80)
